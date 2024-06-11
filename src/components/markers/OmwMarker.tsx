@@ -73,8 +73,6 @@ export default function OmwMarker({
   }, [resultList]);
 
   useEffect(() => {
-    // Alert.alert('resultList', JSON.stringify(resultList.length));
-
     return () => setListModalVisible(false);
   }, []);
 
@@ -131,7 +129,7 @@ export default function OmwMarker({
               markerOnClick(item, index);
             }}
             anchor={{x: 0.5, y: 1}} //FIXME: set anchor
-            image={markerImage}
+            image={index === selected ? markerList.selected : markerImage}
             zIndex={zIndex}
             //TODO: use different images for different categories
           />
