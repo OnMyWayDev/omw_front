@@ -1,5 +1,7 @@
 import Geolocation from '@react-native-community/geolocation';
 import {Coordinate} from '../types/coordinate';
+import {Platform} from 'react-native';
+import {isLocationEnabled} from 'react-native-android-location-enabler';
 
 const fetchIpAndLocation = async () => {
   try {
@@ -22,7 +24,13 @@ const fetchIpAndLocation = async () => {
   }
 };
 
-export const getCurPosition = (initial?: boolean): Promise<Coordinate> => {
+export const getCurPosition = async (
+  initial?: boolean,
+): Promise<Coordinate> => {
+  if (Platform.OS === 'android') {
+    const checkEnabled: boolean = await isLocationEnabled();
+    console.log('checkEnabled', checkEnabled);
+  }
   return new Promise((resolve, reject) => {
     Geolocation.getCurrentPosition(
       info =>
