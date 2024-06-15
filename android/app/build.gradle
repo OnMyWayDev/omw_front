@@ -113,7 +113,6 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
     implementation ("com.naver.maps:map-sdk:3.18.0")
-    compile project(':react-native-android-location-enabler')
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
