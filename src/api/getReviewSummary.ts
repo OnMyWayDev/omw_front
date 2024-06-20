@@ -70,6 +70,11 @@ export const getReviewSummary = async (placeId: string) => {
     const response = await axios.post(
       `http://${LOCAL_LLM_URL}/api/generate`,
       postData,
+      {
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+        },
+      },
     );
     const cleanedReviews = response.data.response.replace(/[\r\n]+/g, ' ');
     return cleanedReviews;
