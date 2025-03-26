@@ -1,0 +1,9 @@
+import React from 'react';
+// import CurPosButtonSVG from '../../assets/images/curPosButton.svg';
+import {View, TouchableOpacity} from 'react-native';
+
+const CurPosButton = () => {
+  return <View></View>;
+};
+
+// export default CurPosButton;

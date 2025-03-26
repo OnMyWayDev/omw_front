@@ -1,0 +1,18 @@
+Detecting android app version:
+
+Using the target binary version value "1.0.4" from "android/app/build.gradle".
+
+Running "react-native bundle" command:
+
+node node_modules/.bin/react-native bundle --assets-dest build/CodePush --bundle-output build/CodePush/index.android.bundle --dev false --entry-file index.js --platform android
+Welcome to Metro v0.80.8
+              Fast - Scalable - Integrated
+
+info Writing bundle output to:, build/CodePush/index.android.bundle
+info Done writing bundle output
+info Copying 19 asset files
+info Done copying assets
+
+Releasing update contents to CodePush:
+
+Successfully released an update containing the "build/CodePush" directory to the "Production" deployment of the "onmyway-android" app.
