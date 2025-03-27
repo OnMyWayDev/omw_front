@@ -18,7 +18,7 @@ function Stars({scoreAvg}: {scoreAvg: number}) {
       stars.push(<StarUnFilledSVG key={i} />);
     }
   }
-  return stars;
+  return <>{stars}</>;
 }
 
 export default function BottomSheetComponent({
@@ -145,14 +145,14 @@ export default function BottomSheetComponent({
                 className="rounded-lg px-1 py-0.5 justify-center items-center"
                 style={{
                   borderWidth: 1,
-                  borderColor: open === 'Y' ? '#338A17' : '#FF4D4D',
+                  borderColor: '#338A17',
                 }}>
                 <Text
                   className="text-xs"
                   style={{
-                    color: open === 'Y' ? '#338A17' : '#FF4D4D',
+                    color: '#338A17',
                   }}>
-                  {open === 'Y' ? '영업중' : '영업종료'}
+                  영업중
                 </Text>
               </View>
             )}
@@ -161,20 +161,20 @@ export default function BottomSheetComponent({
                 className="rounded-lg px-1 py-0.5 justify-center items-center"
                 style={{
                   borderWidth: 1,
-                  borderColor: parking === 'Y' ? '#338A17' : '#FF4D4D',
+                  borderColor: '#338A17',
                 }}>
                 <Text
                   className="text-xs"
                   style={{
-                    color: parking === 'Y' ? '#338A17' : '#FF4D4D',
+                    color: '#338A17',
                   }}>
-                  {parking === 'Y' ? '주차가능' : '주차불가'}
+                  {'주차가능'}
                 </Text>
               </View>
             )}
           </View>
           <View className="flex-row items-center">
-            {scoreAvg && (
+            {scoreAvg !== undefined && scoreAvg !== null && scoreAvg > 0 && (
               <>
                 <Text
                   className="text-sm font-light text-center mr-1"
@@ -184,7 +184,7 @@ export default function BottomSheetComponent({
                   {scoreAvg}
                 </Text>
                 <Stars scoreAvg={parseFloat(scoreAvg)} />
-                {commentCnt && (
+                {commentCnt && commentCnt > 0 && (
                   <Text
                     className="text-sm ml-1 mr-1"
                     style={{
@@ -212,7 +212,7 @@ export default function BottomSheetComponent({
             }}>
             {address_name}
           </Text>
-          {tags && tags.length > 0 && (
+          {tags !== undefined && tags !== null && tags.length > 0 ? (
             <View>
               <View className="flex-row items-center pt-0.5">
                 {tags.map((tag: string, index: number) => {
@@ -259,6 +259,8 @@ export default function BottomSheetComponent({
                 </View>
               )}
             </View>
+          ) : (
+            <></>
           )}
         </View>
       </TouchableOpacity>

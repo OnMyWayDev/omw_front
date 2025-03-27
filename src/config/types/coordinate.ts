@@ -11,13 +11,13 @@ export interface CoordDetail extends Coordinate {
 }
 
 export interface ExtraDetail {
-  open?: string;
+  open?: boolean;
   tags?: string[];
   photoUrl?: string;
   commentCnt?: number; //별점
   reviewCnt?: number;
   scoreAvg?: string;
-  parking?: string; //'Y' | 'N' | undefined
+  parking?: boolean; //'Y' | 'N' | undefined
 }
 
 export interface PlaceDetail extends ExtraDetail {

@@ -113,20 +113,21 @@ export default function OmwMarker({
             !item.commentCnt ||
             item.commentCnt === 0
           ) {
-            if (item.open === 'Y') {
+            if (item.open) {
               zIndex = 5;
               markerImage = markerList.basic.on;
               width = DEFAULT_MARKER_WIDTH;
               height = DEFAULT_MARKER_HEIGHT;
-            } else {
-              zIndex = 1;
-              if (item.open === 'N') markerImage = markerList.small.off;
-              else markerImage = markerList.small.default;
-              width = ELLIPSE_MARKER_WIDTH;
-              height = ELLIPSE_MARKER_HEIGHT;
             }
-          } else if (item.open === 'Y') markerImage = markerList.basic.on;
-          else if (item.open === 'N') markerImage = markerList.basic.off;
+            //  else {
+            //   zIndex = 1;
+            //   if (item.open === 'N') markerImage = markerList.small.off;
+            //   else markerImage = markerList.small.default;
+            //   width = ELLIPSE_MARKER_WIDTH;
+            //   height = ELLIPSE_MARKER_HEIGHT;
+            // }
+          } else if (item.open) markerImage = markerList.basic.on;
+          // else if (item.open === 'N') markerImage = markerList.basic.off;
           return (
             <Marker
               key={index}

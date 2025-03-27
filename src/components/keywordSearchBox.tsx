@@ -112,7 +112,6 @@ export default function KeywordSearchBox({
         //@ts-ignore
         const placeId = curPlace.place_url.match(/\/(\d+)$/)[1];
         const extraData = await getExtraPlaceData(placeId);
-        console.log('extraData', extraData);
         return {
           ...curPlace,
           ...extraData,
