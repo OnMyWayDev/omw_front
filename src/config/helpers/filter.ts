@@ -1,6 +1,6 @@
 //@ts-nocheck
 export const filterByOpen = result => {
-  const filteredY = result.filter(item => item.open === 'Y');
+  const filteredY = result.filter(item => item.open); //updated 250327
   return filteredY;
   // const filteredElse = result.filter(item => item.open !== 'Y');
   // const filtered = filteredY.concat(filteredElse);
@@ -8,7 +8,7 @@ export const filterByOpen = result => {
 };
 
 export const filterByParking = result => {
-  const filteredY = result.filter(item => item.parking === 'Y');
+  const filteredY = result.filter(item => item.parking); //updated 250327
   return filteredY;
 };
 

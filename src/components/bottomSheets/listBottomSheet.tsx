@@ -238,9 +238,9 @@ export default function ListBottomSheet({
                 backgroundColor: selectedNum() ? '#EBF2FF' : 'transparent',
               }}>
               <FilterSVG />
-              {selectedNum() && (
-                <Text style={{color: '#A8A8A8'}}>{selectedNum()}</Text>
-              )}
+              <Text style={{color: '#A8A8A8'}}>
+                {selectedNum() ? selectedNum() : ''}
+              </Text>
             </View>
             <TouchableOpacity
               className="px-2 py-1.5 rounded-xl border"
