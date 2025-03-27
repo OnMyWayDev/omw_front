@@ -10,6 +10,7 @@ export const axiosInstance = axios.create({
   },
 });
 
+console.log('BASE_URL', BASE_URL);
 axiosInstance.interceptors.response.use(
   response => {
     return response;
@@ -25,12 +26,34 @@ axiosInstance.interceptors.response.use(
   },
 );
 
+const randomUserAgent = () => {
+  const userAgentList = [
+    'Mozilla/5.0',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
+    'Mozilla/5.0 (Linux; Android 11; Pixel 5)',
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)',
+  ];
+  return userAgentList[Math.floor(Math.random() * userAgentList.length)];
+};
+
 export const kakaoInstance = axios.create({
-  baseURL: 'https://place.map.kakao.com/main/v/',
+  baseURL: 'https://place-api.map.kakao.com/places/panel3/',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
+    Referer: 'https://place.map.kakao.com/',
+    Origin: 'https://place.map.kakao.com',
+    Pf: 'web',
+    'Accept-language': 'ko',
+    'Accept-Encoding': 'gzip, deflate, br, zstd',
+    'User-Agent': 'Mozilla/5.0',
   },
+});
+
+kakaoInstance.interceptors.request.use(config => {
+  config.headers['User-Agent'] = randomUserAgent();
+  return config;
 });
 
 kakaoInstance.interceptors.response.use(

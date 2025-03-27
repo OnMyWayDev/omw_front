@@ -207,12 +207,11 @@ export default function MainBottomSheet({
               </View>
             ) : (
               <View className="flex-1">
-                {/* FIXME: uncomment below to use ChatGPT API */}
-                <TouchableOpacity
+                {/* <TouchableOpacity //FIXME: review api is not working (250327)
                   className="mx-4 px-4 py-2 bg-[#EBF2FF] rounded-lg justify-center"
                   onPress={onReviewSummaryPress}
                   disabled={reviewSummaryLoading || reviewSummary.length > 0}>
-                  <View className="flex-row w-full">
+                  <View className="flex-row w-full"> 
                     <BlinkStarsSVG width={17} height={17} />
                     {reviewSummary.length > 0 ? (
                       <>
@@ -240,7 +239,7 @@ export default function MainBottomSheet({
                       {reviewSummary}
                     </Text>
                   )}
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <WebView
                   source={{
                     uri: curPlace.place_url.replace(/^http:\/\//i, 'https://'),

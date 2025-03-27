@@ -68,14 +68,14 @@ export default function ListBottomSheetComponent({
               className="rounded-lg px-1 py-0.5 justify-center items-center"
               style={{
                 borderWidth: 1,
-                borderColor: open === 'Y' ? '#338A17' : '#FF4D4D',
+                borderColor: '#338A17',
               }}>
               <Text
                 className="text-xs"
                 style={{
-                  color: open === 'Y' ? '#338A17' : '#FF4D4D',
+                  color: '#338A17',
                 }}>
-                {open === 'Y' ? '영업중' : '영업종료'}
+                영업중
               </Text>
             </View>
           )}
@@ -84,14 +84,14 @@ export default function ListBottomSheetComponent({
               className="rounded-lg px-1 py-0.5 justify-center items-center"
               style={{
                 borderWidth: 1,
-                borderColor: parking === 'Y' ? '#338A17' : '#FF4D4D',
+                borderColor: '#338A17',
               }}>
               <Text
                 className="text-xs"
                 style={{
-                  color: parking === 'Y' ? '#338A17' : '#FF4D4D',
+                  color: '#338A17',
                 }}>
-                {parking === 'Y' ? '주차가능' : '주차불가'}
+                주차가능
               </Text>
             </View>
           )}
