@@ -19,7 +19,7 @@ export const getExtraPlaceData = async (placeId: string) => {
       open:
         res.business_hours?.real_time_info?.business_hours_status?.code ===
         'OPEN', //updated
-      tags: res.place_add_info?.facilities?.tags, //updated
+      tags: res.place_add_info?.tags, //updated
       photoUrl: res.photos?.photos[0]?.url
         ? res.photos?.photos[0]?.url.replace(/^http:\/\//i, 'https://')
         : null,

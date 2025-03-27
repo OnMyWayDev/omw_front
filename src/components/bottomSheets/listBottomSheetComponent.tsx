@@ -15,7 +15,7 @@ function Stars({scoreAvg}: {scoreAvg: number}) {
       stars.push(<StarUnFilledSVG key={i} />);
     }
   }
-  return stars;
+  return <>{stars}</>;
 }
 
 export default function ListBottomSheetComponent({
@@ -36,7 +36,7 @@ export default function ListBottomSheetComponent({
     parking,
   } = placeInfo;
 
-  const placeName = place_name ? place_name : address_name;
+  const placeName = place_name || address_name || '';
 
   return (
     <TouchableOpacity className="py-2 flex-row w-full pt-3" onPress={onSelect}>
@@ -63,7 +63,7 @@ export default function ListBottomSheetComponent({
             }>
             {place_name}
           </Text>
-          {open && (
+          {open ? (
             <View
               className="rounded-lg px-1 py-0.5 justify-center items-center"
               style={{
@@ -78,8 +78,10 @@ export default function ListBottomSheetComponent({
                 영업중
               </Text>
             </View>
+          ) : (
+            <></>
           )}
-          {parking && (
+          {parking ? (
             <View
               className="rounded-lg px-1 py-0.5 justify-center items-center"
               style={{
@@ -94,10 +96,12 @@ export default function ListBottomSheetComponent({
                 주차가능
               </Text>
             </View>
+          ) : (
+            <></>
           )}
         </View>
         <View className="flex-row items-center py-0.5">
-          {scoreAvg && (
+          {scoreAvg !== undefined && scoreAvg !== null && scoreAvg > 0 ? (
             <>
               <Text
                 className="text-sm font-light text-center mr-1"
@@ -107,7 +111,9 @@ export default function ListBottomSheetComponent({
                 {scoreAvg}
               </Text>
               <Stars scoreAvg={parseFloat(scoreAvg)} />
-              {commentCnt && (
+              {commentCnt !== undefined &&
+              commentCnt !== null &&
+              commentCnt > 0 ? (
                 <Text
                   className="text-sm ml-1"
                   style={{
@@ -115,10 +121,14 @@ export default function ListBottomSheetComponent({
                   }}>
                   {`(${commentCnt})`}
                 </Text>
+              ) : (
+                <></>
               )}
             </>
+          ) : (
+            <></>
           )}
-          {reviewCnt && (
+          {reviewCnt !== undefined && reviewCnt !== null ? (
             <Text
               className={scoreAvg ? 'text-sm ml-2' : 'text-sm'}
               style={{
@@ -126,6 +136,8 @@ export default function ListBottomSheetComponent({
               }}>
               {`리뷰 ${reviewCnt}`}
             </Text>
+          ) : (
+            <></>
           )}
         </View>
         <Text
